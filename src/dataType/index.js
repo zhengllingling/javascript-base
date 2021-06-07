@@ -1,6 +1,7 @@
 // import "./Boolean";
 // import "./String";
-
+// import "./Array";
+// import "./Number";
 /** 
  * 基本包装类型： Number Boolean String
  * 装箱：将基本数据类型转换成相对应的引用类型 分两种 显示装箱 和 隐式装箱
@@ -27,3 +28,31 @@ var a = new Boolean(true);
 var b = new String("123")
 b.valueOf();
 a.toString();
+
+
+/**
+ * 类型转换
+ */
+// 能区分基本数据类型 function object 还有js内置对象Array等 但是不能区分自定义类
+function type(val) {
+    let result = typeof val;
+    if(result === 'object') {
+        const str = Object.prototype.toString.call(val);
+        result = str.slice(8, str.length - 1).toLowerCase();
+    }
+    return result;
+}
+
+function Person(name) {
+    this.name = name;
+}
+
+let p = new Person("tony");
+
+type(p); // Object
+
+function isType(a, b) {
+    return a instanceof b;
+}
+
+isType(p, Person);

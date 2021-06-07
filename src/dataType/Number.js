@@ -20,3 +20,12 @@ Number.isNaN(a)
 Number.parseInt("123.12")
 Number.parseFloat("123.12")
 Number.isInteger(a);
+Number.isSafeInteger(a);
+
+Number.EPSILON // 最小误差
+Number.MAX_SAFE_INTEGER
+Number.MIN_SAFE_INTEGER
+
+
+// BigInt：大整数 用来表示整数，任何位数的整数都可以准确表示
+let bn = 1n;
