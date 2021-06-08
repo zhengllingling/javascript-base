@@ -1,5 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
 module.exports = {
     entry: "./src/main.js",
     output: {
@@ -25,11 +28,11 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ["style-loader", "css-loader"]
+                use: [MiniCssExtractPlugin.loader, "style-loader", "css-loader"]
             },
             {
                 test: /\.scss$/,
-                use: ["style-loader", "css-loader", "scss-loader"]
+                use: [MiniCssExtractPlugin.loader, "style-loader", "css-loader", "scss-loader"]
             },
             {
                 test: /\.png|jpg|jpeg|gif|bmp|mp4|ogg|mp3|wav$/,
@@ -51,7 +54,16 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: "javascript基础学习与练习",
-            template: "./public/index.html"
+            template: "./public/index.html",
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true
+            }
+        }),
+        new CleanWebpackPlugin(),
+        new OptimizeCssAssetsWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: "css/[name].css"
         })
     ],
     mode: "development"
