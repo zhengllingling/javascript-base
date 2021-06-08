@@ -87,3 +87,10 @@ let { x, ...a } = {x: 1, y: 2, z: 3};
 // a { y: 2, z: 3}
 // 取出所有可遍历属性到当前对象中
 let c = {...a}
+
+/* 
+    Object.values
+    Object.keys
+    Object.enteries
+    Object.fromEnteries 是 Object.enteries 的逆操作
+*/
