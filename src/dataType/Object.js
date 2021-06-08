@@ -94,3 +94,8 @@ let c = {...a}
     Object.enteries
     Object.fromEnteries 是 Object.enteries 的逆操作
 */
+
+/* 
+    for...in 和 for...of的区别
+    for in 遍历的是对象的key 还能遍历原型上的属性
+*/
